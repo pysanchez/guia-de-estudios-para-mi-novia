@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -141,7 +142,9 @@
               <h3>Motivo, antecedente y consecuencia</h3>
               <p>Inventa un ejemplo breve. Explica qué dato te ayudaría a contrastar dos posibles motivos.</p>
               <label class="sr-only" for="notes-1">Tu explicación sobre motivo, antecedente y consecuencia</label>
-              <textarea id="notes-1" placeholder="Escribe tu explicación…" rows="4"></textarea>
+              <textarea id="notes-1" data-writing-check="motive" placeholder="Escribe tu explicación…" rows="4"></textarea>
+              <button class="compare-button" type="button">Revisar conceptos <span aria-hidden="true">↗</span></button>
+              <div class="writing-feedback" aria-live="polite" hidden></div>
               <span class="prompt-source">GUÍA · FASE 1, TEMA 3</span>
             </article>
             <article class="writing-prompt">
@@ -149,7 +152,9 @@
               <h3>Evaluación forense</h3>
               <p>Resume sus etapas y explica por qué un síntoma, por sí solo, no prueba un hecho.</p>
               <label class="sr-only" for="notes-2">Tu explicación sobre evaluación forense</label>
-              <textarea id="notes-2" placeholder="Escribe tu explicación…" rows="4"></textarea>
+              <textarea id="notes-2" data-writing-check="forensic" placeholder="Escribe tu explicación…" rows="4"></textarea>
+              <button class="compare-button" type="button">Revisar conceptos <span aria-hidden="true">↗</span></button>
+              <div class="writing-feedback" aria-live="polite" hidden></div>
               <span class="prompt-source">GUÍA · FASE 2, TEMA 3</span>
             </article>
             <article class="writing-prompt">
@@ -157,7 +162,9 @@
               <h3>Trayectorias y factores</h3>
               <p>Compara las trayectorias de Moffitt y añade un factor de protección que permita pensar en cambio.</p>
               <label class="sr-only" for="notes-3">Tu explicación sobre trayectorias y factores</label>
-              <textarea id="notes-3" placeholder="Escribe tu explicación…" rows="4"></textarea>
+              <textarea id="notes-3" data-writing-check="trajectories" placeholder="Escribe tu explicación…" rows="4"></textarea>
+              <button class="compare-button" type="button">Revisar conceptos <span aria-hidden="true">↗</span></button>
+              <div class="writing-feedback" aria-live="polite" hidden></div>
               <span class="prompt-source">GUÍA · FASE 3, TEMA 3</span>
             </article>
           </div>
@@ -172,8 +179,9 @@
             </div>
             <p class="section-description">20 reactivos de opción múltiple. Elige la respuesta que mejor se ajusta a los conceptos de la guía.</p>
           </div>
-          <div class="exam-banner"><span class="exam-banner-mark">20</span><div><strong>Reactivos de práctica</strong><span>Fases 1, 2 y 3 <i>·</i> Sin calificación automática en esta versión</span></div><span class="exam-banner-stamp">SIMULACRO<br>2026</span></div>
+          <div class="exam-banner"><span class="exam-banner-mark">20</span><div><strong>Reactivos de práctica</strong><span>Fases 1, 2 y 3 <i>·</i> Calificación y corrección inmediata</span></div><span class="exam-banner-stamp">SIMULACRO<br>2026</span></div>
           <form class="exam-form">
+            <div class="exam-result" id="exam-result" role="status" aria-live="polite" hidden></div>
             <fieldset class="exam-question">
               <legend><span>01</span> ¿Cuál afirmación distingue correctamente conducta antisocial y delito?</legend>
               <label><input type="radio" name="q1"><span>Son términos equivalentes en criminología.</span></label>
@@ -299,6 +307,10 @@
                 </fieldset>
               </div>
             </details>
+            <div class="exam-actions">
+              <button class="grade-button" type="submit">Calificar simulacro <span aria-hidden="true">↗</span></button>
+              <button class="reset-button" type="reset">Empezar de nuevo</button>
+            </div>
           </form>
         </section>
 
